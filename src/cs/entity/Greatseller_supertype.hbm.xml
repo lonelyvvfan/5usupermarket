@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2014 7:39:21 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Greatseller_supertype" table="cs_greatseller_supertype">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="typename" type="java.lang.String">
+            <column name="TYPENAME" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2014 7:39:21 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Greatseller" table="cs_greatseller">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="subtypeid" type="java.lang.Integer">
+            <column name="SUBTYPEID" />
+        </property>
+        <property name="suptypeid" type="java.lang.Integer">
+            <column name="SUPTYPEID" />
+        </property>
+        <property name="savepath" type="java.lang.String">
+            <column name="SAVEPATH" />
+        </property>
+        <property name="savepath1" type="java.lang.String">
+            <column name="SAVEPATH1" />
+        </property>
+        <property name="savepath2" type="java.lang.String">
+            <column name="SAVEPATH2" />
+        </property>
+        <property name="savepath3" type="java.lang.String">
+            <column name="SAVEPATH3" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+        <property name="shelves" type="java.lang.String">
+            <column name="SHELVES" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-26 16:11:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Seller" table="cs_seller">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="alipaynum" type="java.lang.String">
+            <column name="ALIPAYNUM" />
+        </property>
+        <property name="identification" type="java.lang.String">
+            <column name="IDENTIFICATION" />
+        </property>
+        <property name="savepath" type="java.lang.String">
+            <column name="SAVEPATH" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="REASON" />
+        </property>
+    </class>
+</hibernate-mapping>

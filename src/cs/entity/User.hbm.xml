@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-7-19 9:49:51 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.User" table="cs_user">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="alipaynum" type="java.lang.String">
+            <column name="ALIPAYNUM" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="nickname" type="java.lang.String">
+            <column name="NICKNAME" />
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="QQ" />
+        </property>
+        <property name="renren" type="java.lang.String">
+            <column name="RENREN" />
+        </property>
+        <property name="weibo" type="java.lang.String">
+            <column name="WEIBO" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+        <property name="school" type="java.lang.String">
+            <column name="SCHOOL" />
+        </property>
+        <property name="living" type="java.lang.String">
+            <column name="LIVING" />
+        </property>
+    </class>
+</hibernate-mapping>

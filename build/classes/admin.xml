@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="admin" namespace="/admin" extends="default">
+		<action name="adminshowUser" class="cs.action.admin.UsermanageAction"
+			method="showuser">
+				<interceptor-ref name="myAdminStack" />
+			<result name="user">/admin/user.jsp</result>
+			<result name="success" type="redirect">/admin/adminshowUser</result>
+			<result name="failure">/normal/loginError.jsp</result>
+			<result name="addSuccess" type="redirect">/admin/adminshowUser</result>
+			<result name="alterShow">/admin/updateuser.jsp</result>
+			<result name="alterSuccess" type="redirect">/admin/adminshowUser</result>
+			<result name="findsuccess">/admin/finduser.jsp</result>
+		</action>
+        
+        <action name="adminshowSeller" class="cs.action.admin.SellermanageAction"
+            method="showseller">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="seller">/admin/seller.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowSeller</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowSeller</result>
+            <result name="alterShow">/admin/updateseller.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowSeller</result>
+            <result name="findsuccess">/admin/findseller.jsp</result>
+        </action>
+        <action name="adminshowGoods" class="cs.action.admin.SupermanageAction"
+            method="showgoods">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="goods">/admin/supermarket.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowGoods</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowGoods</result>
+            <result name="alterShow">/admin/updategoods.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowGoods</result>
+            <result name="findsuccess">/admin/findgoods.jsp</result>
+            <result name="showsubtype">/admin/addgoods.jsp</result>
+        	<result name="view">/admin/viewgoods.jsp</result>
+		</action>
+		 <action name="adminshowCombo" class="cs.action.admin.CombomanageAction"
+            method="showcombo">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="combo">/admin/combo.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowCombo</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowCombo</result>
+            <result name="alterShow">/admin/updatecombo.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowCombo</result>
+            <result name="findsuccess">/admin/findcombo.jsp</result>
+			<result name="showsubtype">/admin/addcombo.jsp</result>
+        	<result name="view">/admin/viewcombo.jsp</result>
+		</action>
+		
+        <action name="adminshowsecGoods" class="cs.action.admin.SecgoodsmanageAction"
+            method="showsecgoods">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="secgoods">/admin/secgoods.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowsecGoods</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowsecGoods</result>
+            <result name="alterShow">/admin/updatesecgoods.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowsecGoods</result>
+            <result name="findsuccess">/admin/findsecgoods.jsp</result>
+            <result name="showsubtype">/admin/addsecgoods.jsp</result>
+			<result name="view">/admin/viewsecgoods.jsp</result>
+        	
+		</action>
+         <action name="adminshowGreatseller" class="cs.action.admin.GreatsellermanageAction"
+            method="showgreatseller">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="greatseller">/admin/greatseller.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowGreatseller</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowGreatseller</result>
+            <result name="alterShow">/admin/updategreatseller.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowGreatseller</result>
+            <result name="findsuccess">/admin/findgreatseller.jsp</result>
+            <result name="showsubtype">/admin/addgreatseller.jsp</result>
+        	<result name="view">/admin/viewgreatseller.jsp</result>
+		</action>
+        <action name="adminshowOrder" class="cs.action.admin.OrdermanageAction"
+            method="showorder">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="order">/admin/order.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowOrder</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowOrder</result>
+            <result name="alterShow">/admin/updateorder.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowOrder</result>
+            <result name="findsuccess">/admin/findorder.jsp</result>
+            <result name="showsubtype">/admin/addorder.jsp</result>
+			<result name="view">/admin/vieworder.jsp</result>
+			<result name="goodscount">/admin/findgoodscount.jsp</result>
+			<result name="turnover">/admin/findturnover.jsp</result>
+        </action>
+         <action name="adminshowTakeout" class="cs.action.admin.TakeoutmanageAction"
+            method="showtakeout">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="takeout">/admin/takeout.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowTakeout</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowTakeout</result>
+            <result name="alterShow">/admin/updatetakeout.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowTakeout</result>
+            <result name="findsuccess">/admin/findtakeout.jsp</result>
+            <result name="showsubtype">/admin/addtakeout.jsp</result>
+			<result name="view">/admin/viewtakeout.jsp</result>
+        </action>
+
+		 <action name="adminshowHelpcenter" class="cs.action.admin.HelpCentermanageAction"
+            method="showhelpcenter">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="helplist">/admin/helpcenter.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowHelpcenter</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowHelpcenter</result>
+            <result name="alterShow">/admin/updatehelp.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowHelpcenter</result>
+            <result name="findsuccess">/admin/findhelp.jsp</result>
+            <result name="showhelp">/admin/addhelp.jsp</result>
+			<result name="view">/admin/viewhelp.jsp</result>
+        </action>
+        
+        <action name="adminshowNotice" class="cs.action.admin.NoticemanageAction"
+            method="shownotice">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="noticelist">/admin/notice.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowNotice</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowNotice</result>
+            <result name="alterShow">/admin/updatenotice.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowNotice</result>
+            <result name="shownotice">/admin/addnotice.jsp</result>
+			<result name="view">/admin/viewnotice.jsp</result>
+        </action>
+        
+        <action name="adminshowKeyword" class="cs.action.admin.KeywordmanageAction"
+            method="showkeyword">
+            	<interceptor-ref name="myAdminStack" />
+            <result name="keywordlist">/admin/keyword.jsp</result>
+            <result name="success" type="redirect">/admin/adminshowKeyword</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/admin/adminshowKeyword</result>
+            <result name="alterShow">/admin/updatekeyword.jsp</result>
+            <result name="alterSuccess" type="redirect">/admin/adminshowKeyword</result>
+            <result name="findsuccess">/admin/findkeyword.jsp</result>
+            <result name="showhelp">/admin/addkeyword.jsp</result>
+			<result name="view">/admin/viewkeyword.jsp</result>
+        </action>
+        
+		<action name="login" class="cs.action.admin.LoginAction"
+			method="login">
+			<result name="login">/normal/login.jsp</result>
+			<result name="alteradminSuccess" type="redirect">/admin/adminshowUser</result>
+			<result name="alteradminFailure">/admin/alteradmin.jsp</result>
+			<result name="logout">/normal/logout.jsp</result>
+		</action>
+	</package>
+</struts>

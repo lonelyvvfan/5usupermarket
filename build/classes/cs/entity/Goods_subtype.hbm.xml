@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-26 16:11:08 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Goods_subtype" table="cs_goods_subtype">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="supertype" type="java.lang.Integer">
+            <column name="SUPERTYPE" />
+        </property>
+        <property name="typename" type="java.lang.String">
+            <column name="TYPENAME" />
+        </property>
+    </class>
+</hibernate-mapping>

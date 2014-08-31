@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    
+   <package name="json" extends="json-default" >
+        <default-action-ref name="index"/>
+<!-- 
+    	  	
+	  	<action name="uploadorder" class="uploadorder">  		
+	  		<result name="success" type="json">
+	  			<param name="contentType">text/html</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="readOrderList" class="zjzy.action.ReadOrderListAction">
+	  		<result name="success" type="json">
+	  			<param name="root">orderList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="updateClient" class="zjzy.action.AlertClientAction">
+	  		<result name="success" type="json">
+	  			<param name="root">clientList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="updateTruck" class="zjzy.action.AlterTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="addTruck" class="zjzy.action.AddTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="deleteTruck" class="zjzy.action.DropTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	<action name="addPost" class="zjzy.action.AddPostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updatePost" class="zjzy.action.AlterPostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+
+	  	<action name="addFacilities" class="zjzy.action.addFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updateFacilities" class="zjzy.action.AlterFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="deletePost" class="zjzy.action.DeletePostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="deleteFacilities" class="zjzy.action.DeleteFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updateTransparameter" class="zjzy.action.AlterTransparameter">
+	  		<result name="success" type="json">
+	  			<param name="root">transparameter</param>
+	  		</result>
+	  	</action>
+	  	 -->
+	  	<action name="test" class="cs.action.TestAction"
+            method="findgoodsspecial">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>      
+     <action name="test1" class="cs.action.Test1Action"
+            method="findsecgoodsspecial">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+         <action name="test2" class="cs.action.Test2Action"
+            method="findtakeoutspecial2">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        <action name="test3" class="cs.action.Test3Action"
+            method="findgreatsellerspecial">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="test4" class="cs.action.Test4Action"
+            method="findsellertypespecial">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="suptype" class="cs.action.GetsuptypeAction"
+            method="getsuptype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+         <action name="ajaxshopping" class="cs.action.AjaxshoppingAction"
+            method="buyone">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="subtype" class="cs.action.GetsubtypeAction"
+            method="getsubtype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        <action name="secsuptype" class="cs.action.GetsecsuptypeAction"
+            method="getsuptype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="secsubtype" class="cs.action.GetsecsubtypeAction"
+            method="getsubtype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+      <action name="takeoutsuptype" class="cs.action.GettakeoutsuptypeAction"
+            method="getsuptype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="takeoutsubtype" class="cs.action.GettakeoutsubtypeAction"
+            method="getsubtype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        <action name="greatsuptype" class="cs.action.GetgreatsuptypeAction"
+            method="getsuptype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+        
+        <action name="greatsubtype" class="cs.action.GetgreatsubtypeAction"
+            method="getsubtype">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+	  
+	   <action name="lunxun" class="cs.action.LunxunAction"
+            method="hasNewOrder">
+            <result name="list" type="json">
+                    <param name="includeProperties">
+                        list.*
+                </param>
+                </result>
+        </action>
+	  </package>
+
+<!-- 
+    	  	
+	  	<action name="uploadorder" class="uploadorder">  		
+	  		<result name="success" type="json">
+	  			<param name="contentType">text/html</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="readOrderList" class="zjzy.action.ReadOrderListAction">
+	  		<result name="success" type="json">
+	  			<param name="root">orderList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="updateClient" class="zjzy.action.AlertClientAction">
+	  		<result name="success" type="json">
+	  			<param name="root">clientList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="updateTruck" class="zjzy.action.AlterTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="addTruck" class="zjzy.action.AddTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	
+	  	<action name="deleteTruck" class="zjzy.action.DropTruckAction">
+	  		<result name="success" type="json">
+	  			<param name="root">viewTruckList</param>
+	  		</result>
+	  	</action>
+	  	<action name="addPost" class="zjzy.action.AddPostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updatePost" class="zjzy.action.AlterPostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+
+	  	<action name="addFacilities" class="zjzy.action.addFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updateFacilities" class="zjzy.action.AlterFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="deletePost" class="zjzy.action.DeletePostAction">
+	  		<result name="success" type="json">
+	  			<param name="root">postlistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="deleteFacilities" class="zjzy.action.DeleteFacilitiesAction">
+	  		<result name="success" type="json">
+	  			<param name="root">facilitieslistMap</param>
+	  		</result>
+	  	</action>
+	  	<action name="updateTransparameter" class="zjzy.action.AlterTransparameter">
+	  		<result name="success" type="json">
+	  			<param name="root">transparameter</param>
+	  		</result>
+	  	</action>
+	  	 -->
+	  
+</struts>
+
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="user" namespace="/user" extends="default">
+	
+	<interceptors>
+         <!-- 配置未登录进行操作的拦截器 -->
+         <interceptor name="userloginInterceptor" class="cs.action.UserloginInterceptor" />
+         <!-- 重新封装一个默认的拦截器栈 -->
+         <interceptor-stack name="myUserStack">
+               <interceptor-ref name="userloginInterceptor" >
+			   <param name="exclude">shopping,setschool,search,test,login,showTakeout,showCombo,userlogin,sellerlogin,register,showGoods,showSecgoods,showHelp,showNotice</param>
+			   </interceptor-ref>
+               <interceptor-ref name="defaultStack" />
+         </interceptor-stack>
+     </interceptors>
+     <!-- 为这个包设置默认的拦截器栈 -->
+     <default-interceptor-ref name="myUserStack" />
+	
+		<action name="usermanage" class="cs.action.user.UsermanageAction" method="showuser">
+			<interceptor-ref name="myUserStack" />
+			<result name="user">/user/user.jsp</result>
+			<result name="alterShow">/user/updateuser.jsp</result>
+			<result name="alterSuccess" type="redirect">/user/usermanage </result>
+		</action>
+        <action name="secgoodsmanage" class="cs.action.user.SecgoodsmanageAction" method="showsecgoods">
+        	<interceptor-ref name="myUserStack" />
+			<result name="secgoods">/user/mesecgoods.jsp</result>
+			<result name="success" type="redirect">/user/secgoodsmanage</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="addSuccess" type="redirect">/user/secgoodsmanage</result>
+            <result name="showsubtype">/user/addsecgoods.jsp</result>
+		    <result name="alterSuccess" type="redirect">/user/secgoodsmanage</result>
+        	<result name="alterShow">/user/updatesecgoods.jsp</result>
+			<result name="view">/user/viewsecgoods.jsp</result>
+		</action>
+        <action name="ordermanage" class="cs.action.user.OrdermanageAction" method="findorderspecial">
+        	<interceptor-ref name="myUserStack" />
+            <result name="findsuccess">/user/meorder.jsp</result>
+            <result name="alterShow">/user/vieworder.jsp</result>
+        </action>
+        
+        <action name="setschool" class="cs.action.user.SetschoolAction"
+			method="setschool">
+			<result name="setsuccess" type="redirect">/user/goods.jsp</result>
+		</action>
+		
+		<action name="login" class="cs.action.user.UserLoginAction"
+			method="login">
+			<result name="logout">/normal/logout.jsp</result>
+		</action>
+		
+		<action name="search" class = "cs.action.user.SearchAction" method="search">
+			<result name = "findsuccess">/user/result.jsp</result>
+		</action>
+		
+		 <action name="shopping" class="cs.action.user.ShoppingAction"
+			method="addToCart">
+			<result name="addsuccess">/user/goods.jsp</result>
+			<result name="subsuccess" type="redirect">/showdetail/ordersuccess.jsp</result>
+			<result name="deleteall" type="redirect">/showdetail/shoppingcarforuser.jsp</result>
+			<result name="delete" type="redirect">/showdetail/shoppingcarforuser.jsp</result>
+			<result name="alipay" type="redirect">/alipay/alipayapi.jsp</result>
+		</action>
+		<action name="showGoods" class="cs.action.user.GoodsAction"
+            method="showgoods">
+            <result name="goods">/user/goods.jsp</result>
+            <result name="success" type="redirect">/user/showGoods</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="findsuccess">/user/findgoods.jsp</result>
+            <result name="alterShow">/user/onegoods.jsp</result>
+        </action>
+        
+         <action name="showCombo" class="cs.action.user.ComboAction"
+            method="showcombo">
+            <result name="combo">/goods.jsp</result>
+            <result name="success" type="redirect">/showCombo</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="findsuccess">/user/findcombo.jsp</result>
+            <result name="alterShow">/user/onecombo.jsp</result>
+        </action>
+        
+        <action name="showTakeout" class="cs.action.user.TakeoutAction"
+            method="altershow">
+            <result name="alterShow">/user/oneseller.jsp</result>
+            <result name="showtakeout">/user/onetakeout.jsp</result>
+        </action>
+        
+        <action name="showSecgoods" class="cs.action.user.SecgoodsAction"
+            method="altershow">
+            <result name="alterShow">/user/onesecondgoods.jsp</result>
+        </action>
+        
+        <action name="showNotice" class="cs.action.user.NoticeAction"
+            method="altershow">
+            <result name="alterShow">/user/notice.jsp</result>
+        </action>
+        
+        <action name="showHelp" class="cs.action.user.HelpAction"
+            method="altershow">
+            <result name="alterShow">/user/about.jsp</result>
+            <result name="view">/user/about.jsp</result>
+        </action>
+	</package>
+</struts>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-8-18 9:23:29 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Turnover" table="TURNOVER">
+        <id name="number" type="int">
+            <column name="NUMBER" />
+            <generator class="assigned" />
+        </id>
+        <property name="total" type="double">
+            <column name="TOTAL" />
+        </property>
+        <property name="isclosed" type="java.lang.Integer">
+            <column name="ISCLOSED" />
+        </property>
+    </class>
+</hibernate-mapping>

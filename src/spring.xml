@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 数据库配置 -->
+	<import resource="/db.xml" />
+	<!-- 管理员dao -->
+	<bean id="adminDAO" class="cs.dao.AdminDAOImpl" parent="daoTemplate" />
+	<!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+		ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="adminService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.AdminServiceImpl">
+				<property name="adminDAO" ref="adminDAO" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 管理员dao -->
+	<bean id="orderDAO" class="cs.dao.OrderDAOImpl" parent="daoTemplate" />
+	<!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+		ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="orderService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.OrderServiceImpl">
+				<property name="orderDAO" ref="orderDAO" />
+			</bean>
+		</property>
+	</bean>
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="shoppingService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.ShoppingServiceImpl">
+				<property name="goodsDAO" ref="goodsDAO" />
+				<property name="comboDAO" ref="comboDAO" />
+				<property name="userDAO" ref="userDAO" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 管理员dao -->
+	<bean id="secgoodsDAO" class="cs.dao.SecgoodsDAOImpl" parent="daoTemplate" />
+	<!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+		ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="secgoodsService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.SecgoodsServiceImpl">
+				<property name="secgoodsDAO" ref="secgoodsDAO" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 管理员dao -->
+	<bean id="comboDAO" class="cs.dao.ComboDAOImpl" parent="daoTemplate" />
+	<!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+		ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="comboService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.ComboServiceImpl">
+				<property name="comboDAO" ref="comboDAO" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 管理员dao -->
+	<bean id="takeoutDAO" class="cs.dao.TakeoutDAOImpl" parent="daoTemplate" />
+	<!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+		ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+	<bean id="takeoutService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.TakeoutServiceImpl">
+				<property name="takeoutDAO" ref="takeoutDAO" />
+			</bean>
+		</property>
+	</bean>
+    
+    <!-- 管理员dao -->
+    <bean id="ajaxDAO" class="cs.dao.AjaxDAOImpl" parent="daoTemplate" />
+    <!-- <bean name="Order" class="cs.dao.OrderDaoImpl"> <property name="sessionFactory" 
+        ref="sessionFactory"></property> </bean> -->
+
+    <!-- 登录服务[进行事务控制] -->
+    <bean id="ajaxService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="cs.service.AjaxServiceImpl">
+                <property name="ajaxDAO" ref="ajaxDAO" />
+            </bean>
+        </property>
+    </bean>
+
+
+	<!-- 普通用户dao -->
+	<bean id="userDAO" class="cs.dao.UserDAOImpl" parent="daoTemplate">
+	</bean>
+
+	<bean id="userService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.UserServiceImpl">
+				<property name="userDAO" ref="userDAO" />
+			</bean>
+
+		</property>
+	</bean>
+
+	<!-- 外卖用户dao -->
+	<bean id="sellerDAO" class="cs.dao.SellerDAOImpl" parent="daoTemplate">
+	</bean>
+
+	<bean id="sellerService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="cs.service.SellerServiceImpl">
+				<property name="sellerDAO" ref="sellerDAO" />
+			</bean>
+
+		</property>
+	</bean>
+    
+    <!-- 页面dao -->
+    <bean id="pagingDAO" class="cs.dao.PagingDAOImpl" parent="daoTemplate" />
+
+    <!-- 分页[进行事务控制] -->
+    <bean id="pagingService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="cs.service.PagingServiceImpl">
+                <property name="pagingDAO" ref="pagingDAO" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="goodsDAO" class="cs.dao.GoodsDAOImpl" parent="daoTemplate" />
+     <bean id="goodsService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="cs.service.GoodsServiceImpl">
+                <property name="goodsDAO" ref="goodsDAO" />
+            </bean>
+        </property>
+    </bean>
+
+	<!-- <bean name="OrderService" class="cs.service.OrderServiceImpl"> <property 
+		name="orderDao" ref="Order"></property> </bean> -->
+
+	<!-- 登录Action -->
+	<bean id="loginAction" class="cs.action.LoginAction" singleton="false">
+		<property name="adminService" ref="adminService" />
+	</bean>
+    
+    <bean id="registerAction" class="cs.action.RegisterAction" singleton="false">
+        <property name="adminService" ref="adminService" />
+    </bean>
+	
+	<bean id="userloginAction" class="cs.action.UserLoginAction"
+		singleton="false">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<bean id="sellerloginAction" class="cs.action.SellerLoginAction"
+		singleton="false">
+		<property name="sellerService" ref="sellerService" />
+	</bean>
+
+	<bean id="usermanageAction" class="cs.action.admin.UsermanageAction"
+		singleton="false">
+		<property name="adminService" ref="adminService" />
+        <property name="pagingService" ref="pagingService" />
+        
+	</bean>
+    
+    <bean id="supermanageAction" class="cs.action.admin.SupermanageAction"
+        singleton="false">
+        <property name="adminService" ref="adminService" />
+        <property name="pagingService" ref="pagingService" />
+        
+    </bean>
+	
+	<bean id="takeoutmanageAction" class="cs.action.admin.TakeoutmanageAction"
+        singleton="false">
+        <property name="adminService" ref="adminService" />
+        <property name="pagingService" ref="pagingService" />
+        
+    </bean>
+
+	<bean id="sellermanageAction" class="cs.action.admin.SellermanageAction"
+		singleton="false">
+		<property name="adminService" ref="adminService" />
+        <property name="pagingService" ref="pagingService" />
+	</bean>
+    
+    <bean id="goodsAction" class="cs.action.GoodsAction"
+        singleton="false">
+        <property name="goodsService" ref="goodsService" />
+        <property name="pagingService" ref="pagingService" />
+    </bean>
+	
+	<bean id="greatsellerAction" class="cs.action.GreatsellerAction"
+        singleton="false">
+        <property name="greatsellerService" ref="greatsellerService" />
+        <property name="pagingService" ref="pagingService" />
+    </bean>
+	
+	<bean id="takeoutAction" class="cs.action.TakeoutAction"
+        singleton="false">
+        <property name="takeoutService" ref="takeoutService" />
+        <property name="pagingService" ref="pagingService" />
+    </bean>
+	<!-- <bean name="showOrder" class="cs.action.ListOrderAction"> <property 
+		name="orderService" ref="OrderService"></property> </bean> -->
+
+	<!-- 上传excel -->
+	<!-- <bean id="uploadorder" class="cs.action.UploadOrderAction" singleton="false"> 
+		<property name="orderService" ref="orderService" /> </bean> <bean id="orderService" 
+		parent="baseTransactionProxy"> <property name="target"> <bean class="cs.service.OrderServiceImpl"> 
+		<property name="orderDao" ref="orderDao"/> </bean> </property> </bean> <bean 
+		id="orderDao" class="cs.dao.OrderDAOImpl" parent="daoTemplate" /> -->
+	<!-- 显示员工 -->
+	<!-- <bean id="showstaff" class="cs.action.ShowStaffAction" singleton="false"> 
+		<property name="staffService" ref="staffService" /> </bean> -->
+	<!-- <bean id="staffService" parent="baseTransactionProxy"> <property name="target"> 
+		<bean class="cs.service.StaffServiceImpl"> <property name="staffDAO" ref="staffDAO"/> 
+		</bean> </property> </bean> <bean id="staffDAO" class="cs.dao.StaffDAOImpl" 
+		parent="daoTemplate" /> -->
+	<!-- 显示岗位 -->
+	<!-- <bean id="postService" parent="baseTransactionProxy"> <property name="target"> 
+		<bean class="cs.service.PostServiceImpl"> <property name="postDAO" ref="postDAO"/> 
+		</bean> </property> </bean> <bean id="postDAO" class="cs.dao.PostDAOImpl" 
+		parent="daoTemplate" /> -->
+	<!-- 显示设备 -->
+	<!-- <bean id="facilitiesService" parent="baseTransactionProxy"> <property 
+		name="target"> <bean class="cs.service.FacilitiesServiceImpl"> <property 
+		name="facilitiesDAO" ref="facilitiesDAO"/> </bean> </property> </bean> <bean 
+		id="facilitiesDAO" class="cs.dao.FacilitiesDAOImpl" parent="daoTemplate" 
+		/> -->
+	<!-- client -->
+	<!-- <bean id="clientDao" class="cs.dao.ClientDAOImpl" parent="daoTemplate" 
+		/> <bean id="clientService" parent="baseTransactionProxy"> <property name="target"> 
+		<bean class="cs.service.ClientServiceImpl"> <property name="clientDao" ref="clientDao"/> 
+		</bean> </property> </bean> -->
+	<!-- truck -->
+	<!-- <bean id="truckDao" class="cs.dao.TruckDAOImpl" parent="daoTemplate" 
+		/> <bean id="truckService" parent="baseTransactionProxy"> <property name="target"> 
+		<bean class="cs.service.TruckServiceImpl"> <property name="truckDao" ref="truckDao"/> 
+		</bean> </property> </bean> -->
+	<!-- workHours -->
+	<!-- <bean id="workHoursDAO" class="cs.dao.WorkHoursDAOImpl" parent="daoTemplate" 
+		/> <bean id="workHoursService" parent="baseTransactionProxy"> <property name="target"> 
+		<bean class="cs.service.WorkHoursServiceImpl"> <property name="workHoursDAO" 
+		ref="workHoursDAO"/> </bean> </property> </bean> <bean id="standOrderService" 
+		parent="baseTransactionProxy"> <property name="target"> <bean class="cs.service.StandOrderServiceImpl"> 
+		<property name="standOrderDao" ref="standOrderDao"/> <property name="transparameterDao" 
+		ref="transparameterDao"/> <property name="orderDao" ref="orderDao"/> </bean> 
+		</property> </bean> <bean id="transparameterDao" class="cs.dao.TransparameterDAOImpl" 
+		parent="daoTemplate" /> <bean id="standOrderDao" class="cs.dao.StandOrderDAOImpl" 
+		parent="daoTemplate" /> <bean id="transparameterService" parent="baseTransactionProxy"> 
+		<property name="target"> <bean class="cs.service.TransparameterServiceImpl"> 
+		<property name="transparameterDao" ref="transparameterDao"/> </bean> </property> 
+		</bean> -->
+</beans>

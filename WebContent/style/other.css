@@ -1,0 +1,822 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    line-height: 1;
+}
+body {
+    line-height:1;
+    background-color:#d3d2cf ;
+    font-family:'Microsoft YaHei ';  
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary {
+    display:block;
+}
+
+a{text-decoration: none;}
+
+.shadow{
+	box-shadow:3px 3px 30px black;
+}
+
+#logo img{
+	width:293px;
+	height:86px;
+}
+
+#top {
+    height: 62px;
+    width: 100%;
+    background-color: #d3d2cf;
+    position: relative;
+}
+
+#top_name{
+    top: 25px;
+    left: 25px;
+    font-family: '瀹嬩綋';
+    position: absolute;
+}
+
+#top_message{
+    width: 170px;
+    height: 30px;
+    top: 16px;
+    right: 40px;
+    margin: auto;
+    border: 1px solid #bdb9b5;
+    background-color: #dcdbd9;
+    position: absolute;
+}
+
+.m1{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 4px;
+    color: red;
+    margin: auto;
+
+}
+.m2{
+    border-right: 1px dashed black;
+    border-left: 1px dashed black;
+}
+#head{
+    float: left;
+    width: 100%;
+    height: 100px;
+
+}
+#logo{
+    height: 50px;
+    top:76px;
+    left: 42px;
+    position: absolute;
+}
+
+#school{
+	background:url(../image/school.png) no-repeat;
+	background-color:#f9f8c9;
+	height:665px;
+}
+.search{
+
+    margin:56px auto 0 auto;
+    width:480px
+}
+.search_form{
+    position:relative;
+    height:38px;
+    display:inline-block;
+}
+.sinput{
+    float:left;
+    width:400px;
+    height:36px;
+    line-height:25px;
+    font-size: 20px;
+    padding:4px 7px;
+    border:3px solid #e99517;
+    border-radius:2px 0 0 2px;
+    background-color:#fbfbfb;
+}
+.sbtn{float:left;
+    width:88px;
+    height:50px;
+    padding:0 12px;
+    margin-left:-1px;
+    border-radius:0 2px 2px 0;
+    border:1px solid #e99518;
+    background-color:#e99518;
+    cursor:pointer;
+    display:inline-block;
+    font-size:22px;
+    vertical-align:middle;
+    color:#f3f7fc;
+    position:absolute;
+    _left:270px;
+    _top:0}
+.searchinput{
+    border: none;
+    width: 520px;
+    font-size: 20px;
+    height:40px;
+}
+button{
+    cursor: pointer;
+    float: right;
+    height: 48px;
+    width: 98px;
+    border: none;
+    background-color: #e99518;
+}
+
+#term{
+    width: 242px;
+    top: 8px;
+    left: 434px;
+    margin: 0;
+    position: relative;
+    font-size: 10px;
+}
+#term img{
+    width: 25px;
+    height: 25px;
+    padding-top: 3px;
+}
+#term a{
+    margin-right: 18px;
+    color: black;
+}
+#runtime{
+    top: 114px;
+    right: 154px;
+    width: 100px;
+    height: 56px;
+    border-right: 1px dashed #e99518;
+    position: absolute;
+}
+#time{
+    top: 130px;
+    right: 234px;
+    width: 70px;
+    height: 44px;
+    position: absolute;
+}
+
+#runtime ul{
+    float: right;
+    list-style: none;
+    margin: 30px 10px 0 0;
+    font-size: 13px;
+}
+
+#bag{
+    float: right;
+    height: 100px;
+    width: 60px;
+    top: 118px;
+    right: 76px;
+    position: absolute;
+}
+#bag_image{
+    width: 38px;
+    height: 58px;
+}
+
+#bag p{
+    float: right;
+    right: 64px;
+    width: 10px;
+    margin-top: 8px;
+    font-size: 15px;
+}
+#container{
+    background-color: #d3d2cf;
+    width: 100%;
+    height:625px;
+    top: 215px;
+    position:absolute;
+    border-bottom: 2px solid #e99517;
+}
+#container_top{
+    background-color: #e99517;
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+#container_foot{
+    list-style: none;
+    height: 70px;
+    width: 690px;
+    top:560px;
+    left:380px;
+    position: absolute;
+}
+
+#container_foot li{
+    float: left;
+    margin-right: 15px;
+}
+
+#for{
+    background:url("../imge/cloude.png") no-repeat;
+    width: 80px;
+    height: 52px;
+    line-height: 58px;
+    left: 50px;
+    top: -3px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+}
+#c_top_term{
+    list-style: none;
+    width: 600px;
+    top: 15px;
+    left: 156px;
+    font-family:'SimSun';
+    position: absolute;
+}
+
+.gong{position:absolute; left:220px; top:160px; }
+.cai{position:absolute; left:440px; top:160px;}
+.ji{position:absolute; left:669px; top:160px;}
+.hangshi{position:absolute; left:899px; top:160px;}
+.jingmao{position:absolute; left:220px; top:345px;}
+.jingrong{position:absolute; left:440px; top:345px;}
+.shuili{position:absolute; left:675px; top:345px;}
+.jingji{position:absolute; left:900px; top:345px;}
+#c_top_term li{
+    float: left;
+    padding: 0 20px 8px 25px;
+    margin: auto 2px 0 2px;
+    font-size: 22px;
+    border-bottom: 5px solid black;
+}
+
+#c_top_term li a{
+    color: white;
+}
+
+#two{
+   float: right;
+     height: 20px;
+     width: 150px;
+     right: 346px;
+     margin-top:5px;
+     background: #9ac949;/*背景色*/
+     border-width: 10px; /*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/
+     border-style: solid;   
+	text-decoration:none;
+	font-size:24px;
+	color:white;
+	text-align:center;
+	line-height:20px;
+	font-family:'SimSun';
+     border-radius: 15px;    /*圆角的大小*/
+     border-color: #9ac949;  /*边框颜色，依次为上、右、下、左*/
+     position: absolute;
+}
+
+#pho{
+    list-style: none;
+    right: 100px;
+    height: 20px;
+    width: 218px;
+    top: 18px;
+    position: absolute;
+}
+
+#pho li{
+    float: left;
+    margin-right: 10px;
+}
+#pho li p{
+    color: white;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+#comtainer_left{
+    text-align: center;
+    width: 120px;
+    height:120px;
+    top: -20px;
+    margin-left: 48px;
+    margin-top: 176px;
+}
+#gotop{
+    cursor: pointer;
+    float: right;
+    right: 45px;
+    top: 350px;
+    width: 50px;
+    height: 47px;
+    position:relative;
+}
+
+#footer{
+    width: 100%;
+    top: 285px;
+    height: 100px;
+    position: relative;
+}
+#foot_top{
+    list-style: none;
+    height: 26px;
+    margin: 60px 0 -6px 400px;
+}
+
+#foot_top li{
+    float: left;
+    color: gray;
+    font-size: 14px;
+    margin-right: 94px;
+}
+
+.foot_list{
+    float: left;
+}
+
+.foot_list li a{
+    text-decoration: none;
+    color: black;
+    font-size: 10px;
+}
+
+.foot_list li{
+    margin-right: 103px;
+}
+
+#foot_d{
+    margin-left: 414px;
+}
+
+#foot_phone{
+    float: right;
+    width: 134px;
+    top: -10px;
+    right: 216px;
+    line-height: 22px;
+    font-size: 10px;
+    position: absolute;
+}
+
+#foot_phone span{
+    color: gray;
+}
+
+#sao{
+    float: right;
+    margin-right: 40px;
+    margin-top: -58px;
+    text-align: center;
+    width: 70px;
+    height: 80px;
+}
+
+#int_left{
+    background-color: white;
+    width: 150px;
+    height: 400px;
+    top:310px;
+    left:270px;
+    position: absolute;
+}
+
+#right{
+    background-color: #f2f2ed;
+    width: 700px;
+    height: 400px;
+    top:310px;
+    left:426px;
+    position: absolute;
+}
+
+#text{
+    color: #000000;
+    font-weight:bold ;
+    top:7px;
+    left:42px;
+    position: absolute;
+}
+
+#title{
+    color: blue;
+    font-weight: bold;
+    font-size: 25px;
+    top:30px;
+    left:285px;
+    position: absolute;
+}
+
+#article{
+    color: #000000;
+    font-weight: bold;
+    top:70px;
+    left:31px;
+    position: absolute;
+}
+
+#sign_logo{
+    width: 200px;
+    height: 60px;
+    top:110px;
+    left:280px;
+    position: absolute;
+}
+
+#line{
+    top:125px;
+    left:692px;
+    position: absolute;
+}
+
+#admin_login
+{
+	 font-weight: bold;
+    color: #e99518;
+    top:255px;
+    left:796px;
+    width:200px;
+    position: absolute;
+     margin-top:5px;
+     background: white;/*背景色*/
+     border-width: 10px; /*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/
+     border-style: solid;
+	font-size:20px;
+	text-align:center;
+	line-height:20px;
+     border-radius: 15px;    /*圆角的大小*/
+     border-color: white;  /*边框颜色，依次为上、右、下、左*/
+}
+
+#renren{
+    font-weight: bold;
+    color: blue;
+    width:224px;
+    top:190px;
+    left:820px;
+    position: absolute;
+     margin-top:5px;
+     background: white;/*背景色*/
+     border-width: 10px; /*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/
+     border-style: solid;
+	font-size:20px;
+	text-align:center;
+	line-height:20px;
+     border-radius: 15px;    /*圆角的大小*/
+     border-color: white;  /*边框颜色，依次为上、右、下、左*/
+}
+
+#renren a{
+	text-decoration:none;
+	display:block;
+	margin:10px 10px 0 20px;
+	float:left;
+}
+
+#renren img{
+	float:left;
+}
+
+#weibo{
+    font-weight: bold;
+    width:224px;
+    top:300px;
+    left:820px;
+    position: absolute;
+      margin-top:5px;
+     background: white;/*背景色*/
+     border-width: 10px; /*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/
+     border-style: solid;
+	font-size:20px;
+	text-align:center;
+	line-height:20px;
+     border-radius: 15px;    /*圆角的大小*/
+     border-color: white;  /*边框颜色，依次为上、右、下、左*/
+}
+
+#weibo a{
+	text-decoration:none;
+	display:block;
+	margin:10px 10px 0 20px;
+	float:left;
+    color: red;
+}
+
+#weibo img{
+	float:left;
+}
+
+#weixin{
+    font-weight: bold;
+    top:400px;
+    width:224px;
+    left:820px;
+    position: absolute;
+      margin-top:5px;
+     background: white;/*背景色*/
+     border-width: 10px; /*边缘的宽度，如果要分别设置可以这样：border-width: 15px 5px 15px 5px;依次为上、右、下、左*/
+     border-style: solid;
+	font-size:20px;
+	text-align:center;
+	line-height:20px;
+     border-radius: 15px;    /*圆角的大小*/
+     border-color: white;  /*边框颜色，依次为上、右、下、左*/
+}
+
+#weixin a{
+	text-decoration:none;
+	display:block;
+	margin:10px 10px 0 20px;
+	float:left;
+	color: #000000;
+}
+
+#weixin img{
+	float:left;
+}
+
+#denglu{
+    top:620px;
+    left:355px;
+    font-weight: bold;
+    position: absolute;
+}
+
+
+
+#denglu a{
+    color:#000000;
+}
+
+#user_name{
+    top:240px;
+    left:290px;
+    position: absolute;
+    border: none;
+}
+
+#username,#telephone,#first_pwd,#second_pwd{
+	height:37px;
+}
+
+#number{
+    top:320px;
+    left:290px;
+    position: absolute;
+}
+
+#password{
+    top:400px;
+    left:290px;
+    position: absolute;
+}
+
+#user_num{
+    top:400px;
+    left:290px;
+    position: absolute;
+}
+
+#re_password{
+    top:478px;
+    left:290px;
+    position: absolute;
+}
+
+#sign{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: green;
+    width: 242px;
+    height: 50px;
+    top:554px;
+    left:308px;
+    position: absolute;
+}
+
+#find{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: green;
+    width: 242px;
+    height: 50px;
+    top:420px;
+    left:308px;
+    position: absolute;
+}
+
+#admin_sign{
+	color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: green;
+    width: 242px;
+    height: 50px;
+    top:395px;
+    left:796px;
+    position: absolute;
+}
+
+#logo{
+    position:absolute;
+    left:60px;
+    top:35px;
+}
+
+
+#wuyou{
+    position:absolute;
+    left:370px;
+    top:90px;
+    font-size: 25px;
+    margin-left:10px;
+}
+#gongshang{
+    top:305px;
+    left:235px;
+    position:absolute;
+}
+#zhecai{
+    top:305px;
+    left:455px;
+    position:absolute;
+}
+
+#zhongguojiliang{
+    top:305px;
+    left:650px;
+    position:absolute;
+}
+
+#hangshi{
+    top:305px;
+    left:915px;
+    position:absolute;
+}
+
+#jingmaozhiye{
+    top:490px;
+    left:200px;
+    position:absolute;
+}
+
+#jingrongzhiye{
+    top:490px;
+    left:430px;
+    position:absolute;
+}
+
+#shuilishuidian{
+    top:490px;
+    left:670px;
+    position:absolute;
+}
+
+#jingjizhiye{
+    top:490px;
+    left:890px;
+    position:absolute;
+}
+
+#n_index{
+	width:400px;
+	margin:100px auto 0 auto;
+}
+
+#n_index a{
+	display:block;
+	float:left;
+	width:100px;
+	line-height:30px;
+	margin-left:20px;
+	text-align:center;
+	height:30px;
+	color:white;
+	background:#e84a4f;
+}
+
+#user_logo{
+	top:85px;
+	left:255px;
+	width:330px;
+	position: absolute;
+}
+#user_name .username{
+	height:37px;
+}
+
+#password .password{
+	height:37px;
+}
+#usernum{
+	height:37px;
+}
+
+#forget{
+	top:520px;
+	left:470px;
+	position:absolute;
+	font-size:14px;
+}
+
+#sellerforget{
+	top:366px;
+	left:890px;
+	position:absolute;
+	font-size:14px;
+}
+
+#register{
+	top:520px;
+	left:320px;
+	position:absolute;
+	font-size:14px;
+}
+.frred{color:#FF0000; font-size:12px;}
+.frbule{color:#0066CC; font-size:12px;display:block;margin-top:6px;text-align:center;}
+
+
+#nolog{
+	margin:100px auto 20px auto;
+	font-size:20px;
+	font-weight:bold;
+}
+
+@media screen and (min-width:800px){
+    #menu #so{margin-left:20px;}
+    #menu #so:focus{width:160px;}
+    .done #ucart{min-width:1100px;}
+    .done #ucart>div{margin-top:100px;}
+}
+@media screen and (min-width:1300px){
+    #ordlist{margin-left:20px;}
+}
+@media screen and (max-width:1300px){
+    #top_name{margin-left:30px;}
+    #about{margin-left:540px;}
+    #top_message{margin-right:20px;}
+    #logo{margin-left: 20px;}
+    #main{margin: 56px auto 0 10px;}
+    #main_right{margin-right: 10px}
+    #two{right: 210px}
+    #pho{right: -22px}
+    #left{margin-left: 20px}
+    #foot_top{margin: 0 0 -6px 180px}
+    #foot_d{margin-left: 186px}
+    #foot_phone{right: 254px}
+    #sao{margin-right: 81px}
+    #main_body #right_sort{right: 10px}
+    #main #nav{right:10px;}
+}
+@media screen and (max-width:1100px){
+	body{width:1100px}
+    #top_name{margin-left:10px;}
+    #about{margin-left: 400px}
+    #logo{margin-left: 10px;}
+    #main{margin: 56px auto 0 10px;}
+    #main_right{margin-right: 10px}
+    #two{right: 150px}
+    #pho{right: -60px}
+    #left{margin-left: 20px}
+    #right_sort{display: none}
+    #foot_top{margin: 0 0 -6px 110px}
+    #foot_d{margin-left: 118px}
+    #nav{display:none;}
+}
+@media screen and (max-width:600px){
+    #top{text-align:center;}
+    #top_name{text-align: center;margin: 20px 0 0;float:none;}
+    #rrlike{position:static;margin:10px;}
+    #about,#top_message{margin:5px 0;float:none;display:inline-block;vertical-align:top;}
+    #top #menu{padding-left:8px;text-align:left;}
+    #reso .close{top: 0;left: 90px;color: #B86E00;}
+    #menu #mcat{display:block;float:right;}
+    #menu a{margin-left:-8px;padding:8px 10px;}
+    #ctrld{display:none;}
+}

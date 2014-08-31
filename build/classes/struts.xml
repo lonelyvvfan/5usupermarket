@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!--该属性指定Struts 2文件上传中整个请求内容允许的最大字节数.
+-->  
+ <constant name="struts.multipart.maxSize" value="1000000000000" />
+  <constant name="struts.devMode" value="true"/>
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <constant name="struts.date.format" value="yyyy-MM-dd"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.multipart.paeser" value="jakarta">
+    </constant>
+    <constant name="struts.custom.i18n.resources" value="globalMessages"/>
+    <constant name="struts.multipart.saveDir" value="/tmp">
+    </constant>
+
+	<package name="default" extends="struts-default">
+		
+		<interceptors>
+         <!-- 配置未登录进行操作的拦截器 -->
+         <interceptor name="adminloginInterceptor" class="cs.action.AdminloginInterceptor" />
+         <!-- 重新封装一个默认的拦截器栈 -->
+         <interceptor-stack name="myAdminStack">
+               <interceptor-ref name="adminloginInterceptor" >
+			   <param name="exclude">shopping,setschool,search,test,login,showTakeout,showCombo,userlogin,sellerlogin,register,showGoods,showSecgoods,showHelp,showNotice</param>
+			   </interceptor-ref>
+               <interceptor-ref name="defaultStack" />
+         </interceptor-stack>
+     </interceptors>
+     <!-- 为这个包设置默认的拦截器栈 -->
+     <default-interceptor-ref name="myAdminStack" />
+     <!-- 设置全局的返回值 -->
+     <global-results>
+          <result name="login" type="redirect">/normal/index.jsp</result>
+     </global-results>
+		<action name="login" class="loginAction" method="login">
+			<result name="login">/normal/login.jsp</result>
+			<result name="ok" type="redirect">/admin/adminshowOrder</result>
+			<result name="error">/normal/loginError.jsp</result>
+		</action>
+
+		<action name="userlogin" class="cs.action.UserLoginAction"
+			method="login">
+			<result name="login">/normal/userlogin.jsp</result>
+			<result name="ok" type="redirect">/user/goods.jsp</result>
+			<result name="error">/normal/loginError.jsp</result>
+			<result name="resetok">/normal/resetok.jsp</result>
+			<result name="reseterror">/normal/reseterror.jsp</result>
+		</action>
+		
+		<action name="sellerlogin" class="cs.action.SellerLoginAction"
+			method="sellerlogin">
+			<result name="login">/normal/sellerlogin.jsp</result>
+			<result name="ok" type="redirect">/seller/sellershowSeller</result>
+			<result name="error">/normal/loginError.jsp</result>
+			<result name="resetok">/normal/resetok.jsp</result>
+			<result name="reseterror">/normal/reseterror.jsp</result>
+		</action>
+
+		<action name="register" class="cs.action.RegisterAction"
+			method="register">
+			<result name="success" type="redirect">/normal/regOk.jsp</result>
+			<result name="failure" type="redirect">/normal/registerError.jsp</result>
+		</action>
+		
+		<action name="setschool" class="cs.action.SetschoolAction"
+			method="setschool">
+			<result name="setsuccess" type="redirect">/goods.jsp</result>
+		</action>
+
+
+		<action name="showGoods" class="cs.action.GoodsAction"
+            method="showgoods">
+            <result name="goods">/goods.jsp</result>
+            <result name="success" type="redirect">/showGoods</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="findsuccess">/findgoods.jsp</result>
+            <result name="alterShow">/onegoods.jsp</result>
+        </action>
+        
+        <action name="showCombo" class="cs.action.ComboAction"
+            method="showcombo">
+            <result name="combo">/goods.jsp</result>
+            <result name="success" type="redirect">/showCombo</result>
+            <result name="failure">/normal/loginError.jsp</result>
+            <result name="findsuccess">/findcombo.jsp</result>
+            <result name="alterShow">/onecombo.jsp</result>
+        </action>
+        
+        <action name="showSecgoods" class="cs.action.SecgoodsAction"
+            method="altershow">
+            <result name="alterShow">/onesecondgoods.jsp</result>
+            <result name="add" type="redirect">/user/usermanage</result>
+        </action>
+        
+        <action name="showNotice" class="cs.action.NoticeAction"
+            method="altershow">
+            <result name="alterShow">/notice.jsp</result>
+        </action>
+        
+        <action name="showHelp" class="cs.action.HelpAction"
+            method="altershow">
+            <result name="alterShow">/about.jsp</result>
+            <result name="view">/about.jsp</result>
+        </action>
+        
+        <action name="showTakeout" class="cs.action.TakeoutAction"
+            method="altershow">
+            <result name="alterShow">/oneseller.jsp</result>
+            <result name="showtakeout">/onetakeout.jsp</result>
+        </action>
+        
+        <action name="shopping" class="cs.action.ShoppingAction"
+			method="addToCart">
+			<result name="addsuccess">/goods.jsp</result>
+			<result name="subsuccess">/showdetail/ordersuccess.jsp</result>
+			<result name="deleteall" type="redirect">/showdetail/shoppingcar.jsp</result>
+			<result name="delete" type="redirect">/showdetail/shoppingcar.jsp</result>
+		</action>
+		
+		<action name="search" class = "cs.action.SearchAction" method="search">
+			<result name = "findsuccess">/result.jsp</result>
+		</action>
+		<!-- <action name="showOrder" class="showOrder"> <result name="success">listOrder.jsp</result> 
+			</action> -->
+		<!-- <action name="uploadorder" class="uploadorder"> <result name="listAll">/main.jsp</result> 
+			</action> -->
+		<!-- <action name="showstaff" class="cs.action.ShowStaffAction"> <result 
+			name="success">humanResourcesRight.jsp</result> </action> <action name="showpost" 
+			class="cs.action.ShowPostAction"> <result name="success">humanResourcesRight.jsp</result> 
+			</action> <action name="showfacilities" class="cs.action.ShowFacilitiesAction"> 
+			<result name="success">facilitiesright.jsp</result> </action> <action name="showworkhours" 
+			class="cs.action.ShowWorkHoursAction"> <result name="success">humanResourcesRight.jsp</result> 
+			</action> <action name="showTruck" class="cs.action.ViewTruckAction"> <result 
+			name="success">truck.jsp</result> </action> <action name="showClient" class="cs.action.ViewClientAction"> 
+			<result name="success">client.jsp</result> </action> <action name="showworkhours" 
+			class="cs.action.ShowWorkHoursAction"> <result name="success">workhours.jsp</result> 
+			</action> <action name="transStandOrder" class="cs.action.TransStandOrderAction"> 
+			<result name="success">transstandOrder.jsp</result> </action> <action name="showStandOrder" 
+			class="cs.action.ViewStandOrderAction"> <result name="success">standOrder.jsp</result> 
+			</action> <action name="showTransparameter" class="cs.action.ViewTransparameterAction"> 
+			<result name="success">transparameter.jsp</result> </action> -->
+	</package>
+
+
+	<include file="test.xml" />
+	<include file="admin.xml" />
+	<include file="user.xml"></include>
+	<include file="seller.xml"></include>
+</struts>

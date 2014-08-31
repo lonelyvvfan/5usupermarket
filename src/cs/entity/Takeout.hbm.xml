@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-6-26 16:11:08 by Hibernate Tools 3.4.0.CR1-->
+<hibernate-mapping>
+    <class name="cs.entity.Takeout" table="cs_takeout">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+		<property name="sellerid" type="java.lang.Integer">
+            <column name="SELLERID" />
+        </property>
+		<property name="sellername" type="java.lang.String">
+            <column name="SELLERNAME" />
+        </property>
+        <property name="subtypeid" type="java.lang.Integer">
+            <column name="SUBTYPEID" />
+        </property>
+		<property name="suptypeid" type="java.lang.Integer">
+            <column name="SUPTYPEID" />
+        </property>
+        <property name="goodsname" type="java.lang.String">
+            <column name="GOODSNAME" />
+        </property>
+        <property name="introduce" type="java.lang.String">
+            <column name="INTRODUCE" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" />
+        </property>
+        <property name="nowprice" type="double">
+            <column name="NOWPRICE" />
+        </property>
+        <property name="savepath" type="java.lang.String">
+            <column name="SAVEPATH" />
+        </property>
+         <property name="savepath1" type="java.lang.String">
+            <column name="SAVEPATH1" />
+        </property>
+        <property name="savepath2" type="java.lang.String">
+            <column name="SAVEPATH2" />
+        </property>
+        <property name="savepath3" type="java.lang.String">
+            <column name="SAVEPATH3" />
+        </property>
+        <property name="newgoods" type="java.lang.Integer">
+            <column name="NEWGOODS" />
+        </property>
+        <property name="hot" type="java.lang.Integer">
+            <column name="HOT" />
+        </property>
+        <property name="special" type="java.lang.Integer">
+            <column name="SPECIAL" />
+        </property>
+        <property name="health" type="java.lang.Integer">
+            <column name="HEALTH" />
+        </property>
+        <property name="recommend" type="java.lang.Integer">
+            <column name="RECOMMEND" />
+        </property>
+        <property name="shelves" type="java.lang.String">
+            <column name="SHELVES" />
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="REASON" />
+        </property>
+    </class>
+</hibernate-mapping>

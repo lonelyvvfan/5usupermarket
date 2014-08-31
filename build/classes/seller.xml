@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="seller" namespace="/seller" extends="default">
+	<interceptors>
+         <!-- 配置未登录进行操作的拦截器 -->
+         <interceptor name="sellerloginInterceptor" class="cs.action.SellerloginInterceptor" />
+         <!-- 重新封装一个默认的拦截器栈 -->
+         <interceptor-stack name="mySellerStack">
+               <interceptor-ref name="sellerloginInterceptor" >
+			   <param name="exclude">shopping,setschool,search,test,login,showTakeout,showCombo,userlogin,sellerlogin,register,showGoods,showSecgoods,showHelp,showNotice</param>
+			   </interceptor-ref>
+               <interceptor-ref name="defaultStack" />
+         </interceptor-stack>
+     </interceptors>
+		<action name="sellershowSeller" class="cs.action.seller.SellermanageAction"
+			method="showseller">
+				<interceptor-ref name="mySellerStack" />
+			<result name="showseller">/seller/seller.jsp</result>
+			<result name="failure">/normal/loginError.jsp</result>
+			<result name="alterShow">/seller/updateseller.jsp</result>
+			<result name = "takeshow">/seller/takeoutshow.jsp</result>
+			<result name = "takeoutdel" type="redirect">/seller/sellershowSeller!takeoutshow</result>
+			<result name = "showsubtype">/seller/addtakeout.jsp</result>
+			<result name = "addSuccess" type="redirect">/seller/sellershowSeller!takeoutshow</result>
+			<result name = "altertakeSuccess" type="redirect">/seller/sellershowSeller!takeoutshow</result>
+			<result name="altertakeShow">/seller/updatetakeout.jsp</result>
+			<result name = "findsuccess">/seller/findtakeout.jsp</result>
+			<result name = "view">/seller/viewtakeout.jsp</result>
+			<result name = "alterSuccess"  type="redirect">/seller/sellershowSeller</result>
+			<result name="success" type="redirect">/seller/sellershowSeller!takeoutshow</result>
+		</action>
+		
+		<action name="login" class="cs.action.seller.SellerLoginAction"
+			method="login">
+			<result name="logout">/normal/logout.jsp</result>
+		</action>
+	</package>
+</struts>

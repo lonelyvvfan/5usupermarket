@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- 引入配置文件 -->
+ 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
+    </bean> 
+
+ 	<!--配置数据源 -->
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+        <property name="driver" value="${jdbc.driverClassName}" />
+		<property name="driverUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="maximumConnectionCount" value="${proxool.maxConnCount}" />
+		<property name="minimumConnectionCount" value="${proxool.minConnCount}" />
+        <property name="statistics" value="${proxool.statistics}" />
+		<property name="simultaneousBuildThrottle" value="${proxool.simultaneousBuildThrottle}" />
+		<property name="trace" value="${proxool.trace}" />
+		<property name="verbose" value="${proxool.verbose}" />
+   </bean>
+
+	<!-- 会话配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.connection.release_mode">after_transaction</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>	
+				<!-- 项目应用实体对象 -->
+				<value>cs/entity/User.hbm.xml</value>
+				<value>cs/entity/Admin.hbm.xml</value>
+                <value>cs/entity/Seller.hbm.xml</value>
+                <value>cs/entity/Goods.hbm.xml</value>
+                <value>cs/entity/Goods_subtype.hbm.xml</value>
+                <value>cs/entity/Goods_supertype.hbm.xml</value>
+				<value>cs/entity/Combo.hbm.xml</value>
+                <value>cs/entity/Order.hbm.xml</value>
+                <value>cs/entity/Order_detail.hbm.xml</value>
+                <value>cs/entity/Greatseller.hbm.xml</value>
+                <value>cs/entity/Greatseller_subtype.hbm.xml</value>
+                <value>cs/entity/Greatseller_supertype.hbm.xml</value>
+				<value>cs/entity/Takeout.hbm.xml</value>
+                <value>cs/entity/Takeout_subtype.hbm.xml</value>
+                <value>cs/entity/Takeout_supertype.hbm.xml</value>
+				<value>cs/entity/Secondgoods.hbm.xml</value>
+                <value>cs/entity/Secondgoods_subtype.hbm.xml</value>
+                <value>cs/entity/Secondgoods_supertype.hbm.xml</value>
+                <value>cs/entity/HelpCenter.hbm.xml</value>
+                <value>cs/entity/Notice.hbm.xml</value>
+                <value>cs/entity/Keyword.hbm.xml</value>
+                <value>cs/entity/Sellertype.hbm.xml</value>
+                <value>cs/entity/GoodsCount.hbm.xml</value>
+			    <value>cs/entity/Turnover.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 事务管理配置 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!--
+		业务类声明式事务管理配模板,需要使用事务管理业务服务对象,直接继承此Bean[即配置parent属性为此bean的id],方便统一配置
+	-->
+	<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<!-- 指明进行事务管理业务方法名[*是通配符] -->
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED</prop>
+				<prop key="del*">PROPAGATION_REQUIRED</prop>
+                <prop key="query*">PROPAGATION_REQUIRED</prop>
+                <prop key="alter*">PROPAGATION_REQUIRED</prop>
+                <prop key="find*">PROPAGATION_REQUIRED</prop>
+                <prop key="get*">PROPAGATION_REQUIRED</prop>
+				<prop key="view*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!--  Dao模板,具体实现Dao继承此bean的配置,省去各个Dao的重复配置 -->
+	<bean id="daoTemplate" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 1, 2014 11:42:40 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.Order" table="cs_order">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="orderNo" type="java.lang.Integer">
+            <column name="ORDERNO" />
+        </property>
+        <property name="arrivedday" type="java.lang.String">
+            <column name="ARRIVEDDAY" />
+        </property>
+        <property name="arrivedtime" type="java.lang.String">
+            <column name="ARRIVEDTIME" />
+        </property>
+        <property name="totalamount" type="double">
+            <column name="TOTALAMOUNT" />
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="truename" type="java.lang.String">
+            <column name="TRUENAME" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="school" type="java.lang.String">
+            <column name="SCHOOL" />
+        </property>
+        <property name="living" type="java.lang.String">
+            <column name="LIVING" />
+        </property>
+        <property name="doorplate" type="java.lang.String">
+            <column name="DOORPLATE" />
+        </property>
+        <property name="room" type="java.lang.String">
+            <column name="ROOM" />
+        </property>
+        <property name="other_address" type="java.lang.String">
+            <column name="OTHER_ADDRESS" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+        <property name="payway" type="java.lang.String">
+            <column name="PAYWAY" />
+        </property>
+        <property name="isclosed" type="java.lang.Integer">
+            <column name="ISCLOSED" />
+        </property>
+        <property name="orderday" type="java.lang.String">
+            <column name="ORDERDAY" />
+        </property>
+    </class>
+</hibernate-mapping>

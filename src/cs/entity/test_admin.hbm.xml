@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 5, 2014 10:42:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cs.entity.test_admin" table="cs_test_admin">
+        <id name="username" type="java.lang.String">
+            <column name="USERNAME" />
+            <generator class="increment" />
+        </id>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="usernamecn" type="java.lang.String">
+            <column name="USERNAMECN" />
+        </property>
+        <property name="enable" type="int">
+            <column name="ENABLE" />
+        </property>
+    </class>
+</hibernate-mapping>
